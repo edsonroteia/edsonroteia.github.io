@@ -1,1 +1,79 @@
-Hello World
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Edson Araujo">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Edson Araujo</title>
+    <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="stylesheet.css">
+  </head>
+
+  <body>
+    <div style="max-width:800px; margin:0 auto;">
+      <!-- Header & Profile -->
+      <section style="display:flex; align-items:flex-start;">
+        <div style="flex:0 0 60%; padding:2.5%;">
+          <h1 style="margin-top:0; text-align:center;">Edson Araujo</h1>
+          <p>I'm a PhD Student at <a href="https://www.goethe-university-frankfurt.de/en">Goethe University Frankfurt</a>, working with <a href="https://hildekuehne.github.io/">Prof. Hilde Kuehne</a>. Our work is part of the  <a href="https://sightandsound.csail.mit.edu/"> MIT-IBM Watson AI Sight and Sound Project</a>, through which we work with several researchers on multi-modal learning.</p>
+          <p>I did my Master's in Computer Science at <a href="https://ufmg.br/">UFMG</a> under the supervision of <a href="https://homepages.dcc.ufmg.br/~erickson/">Prof. Erickson Nascimento</a>, period in which I was able to collaborate in different research topics such as video summarization and image descriptors.</p>
+          <p style="text-align:center; margin-bottom:0;">
+            <a href="data/Edson_CV_May2025.pdf">CV</a> &nbsp;/&nbsp;
+            <a href="https://scholar.google.com/citations?hl=en&user=tHOHQ7IAAAAJ">Scholar</a> &nbsp;/&nbsp;
+            <a href="https://twitter.com/edsonroteia">Twitter</a> &nbsp;/&nbsp;
+            <a href="https://bsky.app/profile/edsonroteia.bsky.social">Bluesky</a> &nbsp;/&nbsp;
+            <a href="https://github.com/edsonroteia/">Github</a>
+          </p>
+          <p style="text-align:center; margin-bottom:0;">
+            Email: <span style="font-family: monospace; font-size: small;">[last_name]</span> at uni-frankfurt.de
+          </p>
+        </div>
+        <div style="flex:0 0 40%; padding:2.5%; text-align:center;">
+          <img src="images/profile_pic.jpeg" alt="profile photo" style="width:100%; max-width:200px; border-radius:50%;">
+        </div>
+      </section>
+
+      <!-- News -->
+      <section style="background:#f8f8f8; border:1px solid #e0e0e0; border-radius:8px; padding:20px; margin:20px 0;">
+        <h2>🔥 News</h2>
+        <p><strong>05.2025</strong>&ensp; CAV-MAE Sync is going to be presented at the <a href="https://www.latinxinai.org/cvpr-2025">LatinX, <a href="https://sites.google.com/view/mmfm3rdworkshop/organizers?authuser=0">MMFM</a> and <a href="https://sightsound.org/">Sight and Sound</a> Workshops</a> at CVPR 2025!</p>
+        <p><strong>02.2025</strong>&ensp; CAV-MAE Sync was accepted to CVPR 2025</p>
+        <p><strong>10.2023</strong>&ensp; I joined the PhD Program under the supervision of <a href="https://hildekuehne.github.io/">Prof. Hilde Kuehne</a></p>
+        <p><strong>05.2023</strong>&ensp; I defended my Master Thesis on "An Audiovisual Approach for Video Summarization Using Psychoacoustic Features"</p>
+      </section>
+
+      <!-- Research -->
+      <section>
+        <h2>Research</h2>
+        <p>I'm interested in multimodal learning, self-supervised methods and audiovisual representation learning. Some papers are <span class="highlight">highlighted</span>.</p>
+      </section>
+
+      <!-- Publications -->
+      <section>
+        <h2>Publications</h2>
+        <table style="width:100%; table-layout:fixed; border:0; border-spacing:0; margin:0;">
+          <colgroup>
+            <col style="width:25%;">
+            <col style="width:75%;">
+          </colgroup>
+          <tbody>
+            <tr>
+              <td style="padding:20px; vertical-align:middle;">
+                <img src="images/cavmaesync.png" alt="CAV-MAE Placeholder" style="width:100%; height:auto; display:block;">
+              </td>
+              <td style="padding:20px; vertical-align:middle;">
+                <a href="#">
+                  <span class="papertitle">CAV-MAE Sync: Improving Contrastive Audio-Visual Mask Autoencoders via Fine-Grained Alignment</span>
+                </a><br>
+                <strong>Edson Araujo</strong>, Andrew Rouditchenko, Yuan Gong, Saurabhchand Bhati, Samuel Thomas, Brian Kingsbury, Leonid Karlinsky, Rogerio Feris, James R. Glass, Hilde Kuehne<br>
+                <em>CVPR, 2025</em><br>
+                <a href="#">Project Page</a> / <a href="#">Code</a> / <a href="#">arXiv</a>
+                <p>We improved audio-visual learning by treating audio as a temporal sequence aligned with video frames instead of global representations, and by separating competing objectives with dedicated tokens. Our approach outperforms more complex architectures on retrieval, classification, and localization tasks across multiple datasets.</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+  </body>
+</html>
