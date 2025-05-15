@@ -36,11 +36,26 @@
       <!-- News -->
       <section style="background:#f8f8f8; border:1px solid #e0e0e0; border-radius:8px; padding:20px; margin:20px 0;">
         <h2>🔥 News</h2>
-        <p><strong>05.2025</strong>&ensp; CAV-MAE Sync is also going to be presented at the <a href="https://www.latinxinai.org/cvpr-2025">LatinX, <a href="https://sites.google.com/view/mmfm3rdworkshop/organizers?authuser=0">MMFM</a> and <a href="https://sightsound.org/">Sight and Sound</a> Workshops</a> at CVPR 2025!</p>
-        <p><strong>02.2025</strong>&ensp; CAV-MAE Sync was accepted to CVPR 2025 as a poster presentation.</p>
-        <p><strong>10.2023</strong>&ensp; I joined a PhD Program under the supervision of <a href="https://hildekuehne.github.io/">Prof. Hilde Kuehne</a></p>
-        <p><strong>05.2023</strong>&ensp; I defended my Master Thesis on "An Audiovisual Approach for Video Summarization Using Psychoacoustic Features"</p>
+        <div id="news-items">
+          <p><strong>05.2025</strong>&ensp; Omni-R1, our latest work from the MIT-IBM Watson AI Sight and Sound Project, is out <a href="https://arxiv.org/abs/2505.09439v1">on ArXiv</a>!</p>
+          <p><strong>05.2025</strong>&ensp; CAV-MAE Sync is also going to be presented at the <a href="https://www.latinxinai.org/cvpr-2025">LatinX, <a href="https://sites.google.com/view/mmfm3rdworkshop/organizers?authuser=0">MMFM</a> and <a href="https://sightsound.org/">Sight and Sound</a> Workshops</a> at CVPR 2025!</p>
+          <p><strong>02.2025</strong>&ensp; CAV-MAE Sync was accepted to CVPR 2025 as a poster presentation. Paper is <a href="https://arxiv.org/abs/2505.01237">on ArXiv</a>.</p>   
+        </div>
+        <span id="show-more" style="margin-top: 10px; cursor: pointer; font-size: smaller; color: blue; text-decoration: underline;">Show more</span>
+        <div id="more-news" style="display: none;">
+          <p><strong>10.2023</strong>&ensp; I joined my PhD Program under the supervision of <a href="https://hildekuehne.github.io/">Prof. Hilde Kuehne</a> to work on multimodal learning.</p>
+          <p><strong>05.2023</strong>&ensp; I defended my Master Thesis on "An Audiovisual Approach for Video Summarization Using Psychoacoustic Features"</p>
+        </div>
       </section>
+      <script>
+        document.getElementById('show-more').onclick = function() {
+          var moreNews = document.getElementById('more-news');
+          if (moreNews.style.display === 'none') {
+            moreNews.style.display = 'block';
+            this.style.display = 'none'; // Hide the button after showing more news
+          }
+        };
+      </script>
 
       <!-- Research -->
       <section>
