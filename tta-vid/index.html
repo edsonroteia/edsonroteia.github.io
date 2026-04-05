@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="TTA-Vid: Generalized Test-Time Adaptation for Video Reasoning">
+  <meta name="keywords" content="Test-Time Adaptation, Video Reasoning, Reinforcement Learning, Multimodal Learning">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TTA-Vid: Generalized Test-Time Adaptation for Video Reasoning</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://edsonroteia.github.io" title="Home">
+      <span class="icon">
+        <i class="fas fa-home"></i>
+      </span>
+    </a>
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+    </div>
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">TTA-Vid: Generalized Test-Time Adaptation for Video Reasoning</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://sjahagir.github.io/">Soumya Shamarao Jahagirdar</a><sup>1*</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.linkedin.com/in/edsonroteia/">Edson Araujo</a><sup>1*</sup>,</span>
+            <span class="author-block">
+              <a href="https://annusha.github.io/">Anna Kukleva</a><sup>6</sup>,</span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=LMLI4EAAAAAJ">M. Jehanzeb Mirza</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.csail.mit.edu/person/saurabhchand-bhati">Saurabhchand Bhati</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://research.ibm.com/people/samuel-thomas">Samuel Thomas</a><sup>3</sup>,</span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=E_loSC8AAAAJ">Brian Kingsbury</a><sup>3</sup>,</span>
+            <span class="author-block">
+              <a href="https://research.ibm.com/people/rogerio-feris">Rogerio Feris</a><sup>3,4</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.csail.mit.edu/person/jim-glass">James R. Glass</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://hildekuehne.github.io/">Hilde Kuehne</a><sup>4,5</sup></span>
+          </div>
+
+          <div class="is-size-6 publication-authors" style="margin-top: 0.5rem;">
+            <span>* Equal contribution</span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>University of Tubingen,</span>
+            <span class="author-block"><sup>2</sup>MIT,</span>
+            <span class="author-block"><sup>3</sup>IBM Research,</span>
+            <span class="author-block"><sup>4</sup>MIT-IBM Watson AI Lab,</span>
+            <span class="author-block"><sup>5</sup>Tuebingen AI Center,</span>
+            <span class="author-block"><sup>6</sup>Max Planck Institute for Informatics, SIC</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2604.00696" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  <span class="tooltip">Coming soon!</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered is-vcentered">
+      <!-- Teaser Figure -->
+      <div class="column is-5 has-text-centered">
+        <div class="content">
+          <figure class="image">
+            <img src="./static/images/teaser.png" alt="TTA-Vid teaser figure" style="width: 100%; height: auto;"/>
+            <p class="has-text-centered is-size-6 mt-2">
+              TTA-Vid adapts vision-language models at test time by sampling multiple frame subsets, enforcing majority-consistency among generated answers, and updating a frame-importance distribution via a multi-armed bandit.
+            </p>
+          </figure>
+        </div>
+      </div>
+
+      <!-- Abstract -->
+      <div class="column is-7">
+        <h2 class="title is-3 has-text-centered">Abstract</h2>
+        <div class="content">
+          <p>
+            Recent video reasoning models have shown strong results on temporal and multimodal understanding, yet they depend on large-scale supervised data and multi-stage training pipelines, making them costly to train and difficult to adapt to new domains.
+          </p>
+          <p>
+            In this work, we leverage the paradigm of Test-Time Reinforcement Learning on video-language data to allow for adapting a pretrained model to incoming video samples at test time without explicit labels. The proposed test-time adaptation for video approach (TTA-Vid) performs step-by-step reasoning at inference time on multiple frame subsets. We then use a batch-aware frequency-based reward computed across different frame subsets as pseudo ground truth to update the model.
+          </p>
+          <p>
+            We show that the resulting model, trained on a single batch or even a single sample from a dataset, is able to generalize at test time to the whole dataset and even across datasets. Additionally, we propose a multi-armed bandit strategy for adaptive frame selection that learns to prioritize informative frames, guided by the same reward formulation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-10">
+          <h2 class="title is-3">Method Overview</h2>
+          <div class="content">
+            <img src="./static/images/method.png" alt="TTA-Vid method overview"/>
+            <p class="has-text-centered">
+              TTA-Vid performs test-time adaptation of model parameters through a batch-aware reinforcement learning objective and adaptively selects the most informative frames using a multi-armed bandit approach. Both components leverage a shared reward signal computed across multiple video frame subsets, enabling the model to jointly learn what to predict and which frames to attend to.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Results</h2>
+
+    <section class="section">
+      <div class="container is-max-desktop">
+        <h3 class="title is-4">Comparison to State-of-the-Art</h3>
+        <div style="overflow-x: auto;">
+        <table class="table is-striped is-bordered is-hoverable" style="border-collapse: collapse; width: 100%;">
+          <thead>
+            <tr>
+              <th style="text-align: left;">Model</th>
+              <th style="text-align: center;">#params</th>
+              <th style="text-align: center;">#frames</th>
+              <th style="text-align: center;">VideoMMMU</th>
+              <th style="text-align: center;">MMVU</th>
+              <th style="text-align: center;">SciVideoBench</th>
+              <th style="text-align: center;">VideoMME</th>
+              <th style="text-align: center;">LongVideoBench</th>
+              <th style="text-align: center;">Avg.</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td colspan="9" style="text-align: left; font-style: italic; background: #f5f5f5;">Proprietary Models</td></tr>
+            <tr>
+              <td>GPT-4o</td>
+              <td style="text-align: center;">-</td>
+              <td style="text-align: center;">-</td>
+              <td style="text-align: center;">61.22</td>
+              <td style="text-align: center;">75.40</td>
+              <td style="text-align: center;">24.90</td>
+              <td style="text-align: center;">71.90</td>
+              <td style="text-align: center;">66.70</td>
+              <td style="text-align: center;">60.02</td>
+            </tr>
+            <tr>
+              <td>Gemini 1.5 Flash</td>
+              <td style="text-align: center;">-</td>
+              <td style="text-align: center;">-</td>
+              <td style="text-align: center;">49.78</td>
+              <td style="text-align: center;">58.80</td>
+              <td style="text-align: center;">-</td>
+              <td style="text-align: center;">70.30</td>
+              <td style="text-align: center;">61.60</td>
+              <td style="text-align: center;">-</td>
+            </tr>
+
+            <tr><td colspan="9" style="text-align: left; font-style: italic; background: #f5f5f5;">Non-Reasoning Models</td></tr>
+            <tr>
+              <td>LLaVA-OneVision</td>
+              <td style="text-align: center;">7B</td>
+              <td style="text-align: center;">64</td>
+              <td style="text-align: center;">33.89</td>
+              <td style="text-align: center;">49.20</td>
+              <td style="text-align: center;">18.80</td>
+              <td style="text-align: center;">58.20</td>
+              <td style="text-align: center;">56.30</td>
+              <td style="text-align: center;">43.27</td>
+            </tr>
+            <tr>
+              <td>Qwen-2.5-VL</td>
+              <td style="text-align: center;">7B</td>
+              <td style="text-align: center;">&le;768</td>
+              <td style="text-align: center;">47.44</td>
+              <td style="text-align: center;">59.20</td>
+              <td style="text-align: center;">16.40</td>
+              <td style="text-align: center;">56.00</td>
+              <td style="text-align: center;">65.10</td>
+              <td style="text-align: center;">48.82</td>
+            </tr>
+            <tr>
+              <td>InternVL-3</td>
+              <td style="text-align: center;">8B</td>
+              <td style="text-align: center;">32</td>
+              <td style="text-align: center;">49.33</td>
+              <td style="text-align: center;">60.80</td>
+              <td style="text-align: center;">26.50</td>
+              <td style="text-align: center;">61.18</td>
+              <td style="text-align: center;">59.08</td>
+              <td style="text-align: center;">51.37</td>
+            </tr>
+
+            <tr><td colspan="9" style="text-align: left; font-style: italic; background: #f5f5f5;">Reasoning Models</td></tr>
+            <tr>
+              <td>Video-RTS</td>
+              <td style="text-align: center;">7B</td>
+              <td style="text-align: center;">128</td>
+              <td style="text-align: center;">52.70</td>
+              <td style="text-align: center;">66.40</td>
+              <td style="text-align: center;">-</td>
+              <td style="text-align: center;">63.00</td>
+              <td style="text-align: center;">56.60</td>
+              <td style="text-align: center;">-</td>
+            </tr>
+            <tr>
+              <td>Video-R1</td>
+              <td style="text-align: center;">7B</td>
+              <td style="text-align: center;">128</td>
+              <td style="text-align: center;">47.00</td>
+              <td style="text-align: center;">64.00</td>
+              <td style="text-align: center;">26.80</td>
+              <td style="text-align: center;">64.30</td>
+              <td style="text-align: center;">57.60</td>
+              <td style="text-align: center;">51.94</td>
+            </tr>
+            <tr>
+              <td>VideoChat-R1</td>
+              <td style="text-align: center;">7B</td>
+              <td style="text-align: center;">128</td>
+              <td style="text-align: center;">52.00</td>
+              <td style="text-align: center;">64.80</td>
+              <td style="text-align: center;">26.50</td>
+              <td style="text-align: center;">64.10</td>
+              <td style="text-align: center;">54.30</td>
+              <td style="text-align: center;">52.34</td>
+            </tr>
+            <tr>
+              <td>VideoChat-R1.5</td>
+              <td style="text-align: center;">7B</td>
+              <td style="text-align: center;">128</td>
+              <td style="text-align: center;">50.00</td>
+              <td style="text-align: center;">67.00</td>
+              <td style="text-align: center;">25.80</td>
+              <td style="text-align: center;">64.80</td>
+              <td style="text-align: center;">53.60</td>
+              <td style="text-align: center;">52.24</td>
+            </tr>
+            <tr>
+              <td>Video-RFT</td>
+              <td style="text-align: center;">7B</td>
+              <td style="text-align: center;">128</td>
+              <td style="text-align: center;">48.10</td>
+              <td style="text-align: center;">66.70</td>
+              <td style="text-align: center;">25.70</td>
+              <td style="text-align: center;">64.10</td>
+              <td style="text-align: center;">57.00</td>
+              <td style="text-align: center;">52.32</td>
+            </tr>
+            <tr>
+              <td>Video-R2</td>
+              <td style="text-align: center;">7B</td>
+              <td style="text-align: center;">128</td>
+              <td style="text-align: center;">50.80</td>
+              <td style="text-align: center;">67.40</td>
+              <td style="text-align: center;">28.40</td>
+              <td style="text-align: center;">63.80</td>
+              <td style="text-align: center;">59.20</td>
+              <td style="text-align: center;">53.92</td>
+            </tr>
+
+            <tr><td colspan="9" style="text-align: left; font-style: italic; background: #f5f5f5;">Test-Time Adaptation (Ours)</td></tr>
+            <tr>
+              <td>TTRV* (w/ Qwen2.5-VL)</td>
+              <td style="text-align: center;">7B</td>
+              <td style="text-align: center;">32</td>
+              <td style="text-align: center;">45.89</td>
+              <td style="text-align: center;">64.48</td>
+              <td style="text-align: center;">25.50</td>
+              <td style="text-align: center;">59.26</td>
+              <td style="text-align: center;">57.07</td>
+              <td style="text-align: center;">50.46</td>
+            </tr>
+            <tr style="background-color: #D9EAF7;">
+              <td><strong>TTA-Vid (w/ Qwen2.5-VL)</strong></td>
+              <td style="text-align: center;">7B</td>
+              <td style="text-align: center;">32</td>
+              <td style="text-align: center;">49.44</td>
+              <td style="text-align: center;">65.12</td>
+              <td style="text-align: center;">25.70</td>
+              <td style="text-align: center;">61.14</td>
+              <td style="text-align: center;">57.81</td>
+              <td style="text-align: center;">51.84</td>
+            </tr>
+            <tr style="background-color: #D9EAF7;">
+              <td><strong>TTA-Vid (w/ InternVL-3)</strong></td>
+              <td style="text-align: center;">8B</td>
+              <td style="text-align: center;">32</td>
+              <td style="text-align: center;"><strong>53.66</strong></td>
+              <td style="text-align: center;"><strong>65.60</strong></td>
+              <td style="text-align: center;"><strong>29.80</strong></td>
+              <td style="text-align: center;"><strong>65.11</strong></td>
+              <td style="text-align: center;"><strong>61.48</strong></td>
+              <td style="text-align: center;"><strong>55.13</strong></td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+        <p class="has-text-centered">
+          TTA-Vid outperforms video reasoning models trained on large-scale supervised data (e.g., Video-RFT with 100K+ CoT samples), using only 32 unlabeled samples at test time.
+        </p>
+      </div>
+    </section>
+
+    <!-- Qualitative Results -->
+    <section class="section">
+      <div class="container is-max-desktop">
+        <h3 class="title is-4">Qualitative Analysis</h3>
+        <div class="content">
+          <img src="./static/images/qualitative.png" alt="Qualitative comparison of frame selection strategies"/>
+          <p class="has-text-centered">
+            <strong>Qualitative comparison of frame selection strategies.</strong> Random sampling (left) vs. our learned selection (right) on two VideoMMMU examples. Our adaptive frame selection learns to prioritize frames containing task-relevant information, leading to correct answers where random sampling fails.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Frame Distribution -->
+    <section class="section">
+      <div class="container is-max-desktop">
+        <h3 class="title is-4">Learned Frame Distributions</h3>
+        <div class="columns is-centered">
+          <div class="column is-6 has-text-centered">
+            <img src="./static/images/frame_dist_uniform.png" alt="Uniform frame distribution" style="width: 100%;"/>
+            <p class="is-size-6 mt-2">Uniform initialization</p>
+          </div>
+          <div class="column is-6 has-text-centered">
+            <img src="./static/images/frame_dist_clip.png" alt="CLIP-based frame distribution" style="width: 100%;"/>
+            <p class="is-size-6 mt-2">CLIP-based initialization</p>
+          </div>
+        </div>
+        <p class="has-text-centered">
+          The multi-armed bandit learns to concentrate sampling probability on informative frames. Over training, the distribution shifts from uniform/CLIP-based to task-relevant frame selection.
+        </p>
+      </div>
+    </section>
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{jahagirdar2026tta,
+  title={TTA-Vid: Generalized Test-Time Adaptation for Video Reasoning},
+  author={Jahagirdar, Soumya Shamarao and Araujo, Edson and Kukleva, Anna and Mirza, M Jehanzeb and Bhati, Saurabhchand and Thomas, Samuel and Kingsbury, Brian and Feris, Rogerio and Glass, James R and Kuehne, Hilde},
+  journal={arXiv preprint arXiv:2604.00696},
+  year={2026}
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            Website template from <a href="https://github.com/nerfies/nerfies.github.io">nerfies</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+</body>
+</html>
