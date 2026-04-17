@@ -1,0 +1,8 @@
+# robots.txt for edsonroteia.github.io
+
+User-agent: *
+Allow: /
+
+Disallow: /data/
+
+Sitemap: https://edsonroteia.github.io/sitemap.xml
